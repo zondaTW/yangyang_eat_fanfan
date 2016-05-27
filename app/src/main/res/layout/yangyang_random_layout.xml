@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="99dp"></LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="洋洋現在要吃"
+                android:id="@+id/textView_random_title"
+                android:layout_gravity="center_horizontal"
+                android:textSize="48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="\?"
+                android:id="@+id/textView_restaurant"
+                android:layout_gravity="center_horizontal"
+                android:textSize="36dp"
+                android:layout_weight="0.83" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_random"
+                android:layout_gravity="center_horizontal"
+                android:text="亂數選取" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google 帶你走"
+                android:id="@+id/button_google_map"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打給洋洋"
+                android:id="@+id/button_call_yang"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </TableLayout>
+</LinearLayout>

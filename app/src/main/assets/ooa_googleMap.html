@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type ="text/css">
+    html {height:100%}
+    body {height:100%;margin:0;padding:0}
+    #map_canvas {height:100%;width:100%}
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?language=zh-TW&sensor=true"></script>
+    <script>
+		var centerPoint;
+		var map;
+		var directionsDisplay;
+		var directionsService = new google.maps.DirectionsService();
+		/*
+		function codeAddress(address){    
+			geocoder.geocode({'address': address },function(results, status){      
+			if(status == google.maps.GeocoderStatus.OK){        
+				map.setCenter(results[0].geometry.location);        
+				var marker = new google.maps.Marker({     //產生物件marker
+					map: map,            
+					position: results[0].geometry.location,	//經緯度物件
+					title: "洋洋要吃這~~"
+				});      
+			}else{        
+				alert("Geocode was not successful for the following reason: " + status);      
+			}    
+			});  
+		}
+		*/
+		function initialize() {
+			var latitude = 23.695163;//雲科大工程五館
+			var longitude = 120.536946;
+			if (window.android) {
+			   latitude = window.android.getLatitude();
+			   longitude = window.android.getLongitude();
+			}
+			centerPoint = new google.maps.LatLng(latitude,longitude);
+			
+			geocoder = new google.maps.Geocoder();
+			directionsDisplay = new google.maps.DirectionsRenderer();
+			var mapOptions = {
+				zoom: 5,                                           //縮放大小
+				mapTypeId: google.maps.MapTypeId.ROADMAP,		///地圖呈現的方式 ROADMAP一般的2D地圖模式
+				center: centerPoint                                //中心點
+			};
+			map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+			//地圖style 來源https://snazzymaps.com
+			var stylesArray = [
+			{
+				"stylers": [
+					{
+						"hue": "#16a085"
+					},
+					{
+						"saturation": 0
+					}
+				]
+			},
+			{
+				"featureType": "road",
+				"elementType": "geometry",
+				"stylers": [
+					{
+						"lightness": 100
+					},
+					{
+						"visibility": "simplified"
+					}
+				]
+			},
+			{
+				"featureType": "road",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			}
+			];
+			map.setOptions({styles: stylesArray});
+			directionsDisplay.setMap(map);
+		}
+		
+		function calcRoute(pEnd) {
+
+			var request = {
+				origin: centerPoint,		//起始點
+				destination: pEnd,	//目的地
+				optimizeWaypoints: true,
+				travelMode: google.maps.DirectionsTravelMode.WALKING	//旅遊方式  走路
+			};
+			directionsService.route(request, function(response, status) {
+				if (status == google.maps.DirectionsStatus.OK)
+				{
+						directionsDisplay.setDirections(response);
+						var route = response.routes[0];
+
+				}
+			});
+			
+		}
+    </script>
+</head>
+<body onload="initialize();">
+	<div id="map_canvas">Loading...</div>
+	  <div id="directions_panel" style="width:100%"></div>
+</body>
+</html>
