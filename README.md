@@ -13,6 +13,6 @@
 ##執行畫面
 <img src="/README_img/home.png" width="200px" height="300px" />
 <img src="/README_img/random.png" width="200px" height="300px" />
-<img src="/README_img/googlemap.png" width="200px" height="300px" />
+<img src="/README_img/googlemap.png" width="200px" height="300px" /> <br>
 <img src="/README_img/food.png" width="200px" height="300px" />
 <img src="/README_img/time.png" width="200px" height="300px" />
