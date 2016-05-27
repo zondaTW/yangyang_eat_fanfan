@@ -11,8 +11,8 @@
 5.防忘記吃飯，會依據所設定的3餐時間，提醒使用者該吃飯了 <br> 
 
 ##執行畫面
-![](/README_img/home.png =50x50) <br> 
-![](/README_img/random.png =50x50) <br> 
-![](/README_img/googlemap.png =50x50) <br>
-![](/README_img/food.png =50x50) <br>
-![](/README_img/time.png =50x50) <br>
+<img src="/README_img/home.png" width="50px" height="50px" />
+<img src="/README_img/random.png" width="50px" height="50px" />
+<img src="/README_img/googlemap.png" width="50px" height="50px" />
+<img src="/README_img/food.png" width="50px" height="50px" />
+<img src="/README_img/time.png" width="50px" height="50px" />
